@@ -3,7 +3,7 @@ import { authentication, authorization } from "../../Middleware/auth.middleware.
 import * as profileService from "./service/user.service.js";
 import * as validators from "./user.validation.js";
 import { validation } from "../../Middleware/validation.middleware.js";
-import { fileValidations, uploadFileDisk } from "../../utils/multer/local.multer.js";
+import { fileValidations } from "../../utils/multer/local.multer.js";
 import { uploadCloudFile } from "../../utils/multer/cloud.multer.js";
 import { endPoint } from "./user.authorization.js";
 const userController = Router();
@@ -62,10 +62,15 @@ userController.patch("/profile/update-cover-image",
 // update identity
 userController.patch("/profile/update-identity",
   authentication(),
-  uploadFileDisk("user/profile", [...fileValidations.document, ...fileValidations.image]).fields([
+  // uploadFileDisk("user/profile", [...fileValidations.document, ...fileValidations.image]).fields([
+  //   { name: "image", maxCount: 1 },
+  //   { name: "data", maxCount: 2 },
+  // ]),
+  uploadCloudFile([...fileValidations.image, ...fileValidations.document]).fields([
     { name: "image", maxCount: 1 },
     { name: "data", maxCount: 2 },
   ]),
+
 
   profileService.updateProfileIdentity);
 
