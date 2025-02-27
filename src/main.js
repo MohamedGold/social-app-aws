@@ -32,7 +32,8 @@ const postLimiter = rateLimit({
   windowMs: 2 * 60 * 1000,
   message: { error: "You Have Reached Rate limit " },
   legacyHeaders: true,
-  // standardHeaders: "draft-8"
+  standardHeaders: "draft-8",
+  
 });
 
 
@@ -66,6 +67,7 @@ async function bootstrap() {
   app.use("/post", postLimiter);
 
 
+  app.set('trust proxy', 1); 
   // async function test() {
   //     const user = await User.insertMany([
   //         {
