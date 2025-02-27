@@ -32,7 +32,7 @@ const postLimiter = rateLimit({
   windowMs: 2 * 60 * 1000,
   message: { error: "You Have Reached Rate limit " },
   legacyHeaders: true,
-  standardHeaders: "draft-8"
+  // standardHeaders: "draft-8"
 });
 
 
