@@ -4,9 +4,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build":"npm i",
+    "build": "npm i",
     "start": "node .",
     "start:dev": "nodemon ."
+  },
+  "engines": {
+    "node": "20.17.0"
   },
   "keywords": [],
   "author": "",
