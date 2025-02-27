@@ -21,6 +21,12 @@ postController.get("/",
   postService.getPosts
 );
 
+// get posts List
+postController.get("/list",
+  // authentication(),
+  postService.getPostsList
+);
+
 
 //create post
 postController.post("/",

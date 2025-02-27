@@ -13,31 +13,31 @@ import { getIo } from "../../Socket/socket.controller.js";
 
 
 
-// export const getPosts = asyncHandler(async (req, res, next) => {
+export const getPostsList = asyncHandler(async (req, res, next) => {
 
-//   let { page, size } = req.query;
-
-
-//   const data = await paginate({
-//     page, size, model: postModel,
-//     filter: {
-//       isDeleted: { $exists: false }
-//     },
-//     populate: [{
-//       path: 'comments',
-//       match: { isDeleted: { $exists: false }, commentId: { $exists: false } },
-//       populate: [{
-//         path: "reply",
-//         match: { isDeleted: { $exists: false } },
-
-//       }]
-//     }],
-//   });
+  let { page, size } = req.query;
 
 
-//   return successResponse({ res, status: 200, data });
+  const data = await paginate({
+    page, size, model: postModel,
+    filter: {
+      isDeleted: { $exists: false }
+    },
+    populate: [{
+      path: 'comments',
+      match: { isDeleted: { $exists: false }, commentId: { $exists: false } },
+      populate: [{
+        path: "reply",
+        match: { isDeleted: { $exists: false } },
 
-// });
+      }]
+    }],
+  });
+
+
+  return successResponse({ res, status: 200, data });
+
+});
 
 
 export const getPosts = asyncHandler(async (req, res, next) => {
