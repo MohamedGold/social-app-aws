@@ -28,7 +28,7 @@ const authLimiter = rateLimit({
 });
 
 const postLimiter = rateLimit({
-  limit: 10,
+  limit: 30,
   windowMs: 2 * 60 * 1000,
   message: { error: "You Have Reached Rate limit " },
   legacyHeaders: true,
