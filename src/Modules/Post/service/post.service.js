@@ -35,7 +35,7 @@ export const getPostsList = asyncHandler(async (req, res, next) => {
   });
 
   if (!data || (Array.isArray(data) && data.length === 0) || (data.docs && data.docs.length === 0)) {
-    return successResponse({ res, status: 200, data: { message: "There is no posts" } });
+     throw new Error(" the is no posts ");
   }
 
 
