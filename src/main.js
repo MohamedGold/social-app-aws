@@ -64,7 +64,7 @@ async function bootstrap() {
 
   app.use(helmet());
   app.use("/auth", authLimiter);
-  // app.use("/post", postLimiter);
+  app.use("/post", postLimiter);
 
 
   app.set('trust proxy', 1); 
