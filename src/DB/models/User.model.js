@@ -60,7 +60,7 @@ const userSchema = new Schema({
     },
     phone: {
         type: String,
-        required: [true, 'Phone number is required'],
+        // required: [true, 'Phone number is required'],
         // unique :  [true, 'Phone number already exists'],
     },
     address: String,
@@ -79,7 +79,7 @@ const userSchema = new Schema({
     },
     age: {
         type: Number,
-        required: [true, 'Age is required'],
+        // required: [true, 'Age is required'],
         min: [18, 'Age must be at least 18 years old'],
         max: [100, 'Age must be at most 100 years old'],
     },

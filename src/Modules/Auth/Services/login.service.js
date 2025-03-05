@@ -245,7 +245,7 @@ export const loginWithGmail = asyncHandler(async (req, res, next) => {
   }
 
 
-  if (!user.provider != providerTypes.google) {
+  if (user.provider !== providerTypes.google) {
     return next(new Error("In-valid provider", { cause: 400 }));
   }
 
